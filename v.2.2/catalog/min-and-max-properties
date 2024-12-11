@@ -1,0 +1,139 @@
+PREFIX rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX adms:     <http://www.w3.org/ns/adms#> .
+PREFIX dcat:     <http://www.w3.org/ns/dcat#> .
+PREFIX dct:      <http://purl.org/dc/terms/> .
+PREFIX foaf:     <http://xmlns.com/foaf/0.1/> .
+PREFIX owl:      <http://www.w3.org/2002/07/owl#> .
+PREFIX rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+PREFIX schema:   <http://schema.org/> .
+PREFIX skos:     <http://www.w3.org/2004/02/skos/core#> .
+PREFIX spdx:     <http://spdx.org/rdf/terms#> .
+PREFIX xsd:      <http://www.w3.org/2001/XMLSchema#> . 
+PREFIX vcard:    <http://www.w3.org/2006/vcard/ns#> .
+
+<https://data.digdir.no/catalog/test_complete_dcat_1> a dcat:Catalog ;
+    dct:description "En katalog som inneholder datasettbeskrivelser med maksimalt og minimalt antall egenskaper fra DCAT-AP-NO v 2.2."@nb ,
+                    "Ei katalog som inneheld datasettbeskrivingar med maksimalt og minimalt antall eigenskapar frå DCAT-AP-NO v.2.2."@nn ,
+                    "A catalog containing dataset descriptions with maximum and minimum of properties from DCAT-AP-NO v.2.2."@en ;
+    dct:identifier  "test_complete_dcat_1" ;
+    dct:title           "Testkatalog komplett DCAT-AP-NO"@nb ,
+                        "Testkatalog heile DCAT-AP-NO"@nn ,
+                        "Test catalog complete DCAT-AP-NO"@en ;
+    dct:publisher   <https://register.digdir.no/organisasjoner/testorganisasjonen> ;
+    dcat:dataset    <https://data.digdir.no/datasets/test_dataset_complete_dcat> ,
+                    <https://data.digdir.no/datasets/test_dataset_minimal> ;
+    dct:spatial     <http://publications.europa.eu/resource/authority/country/NOR> , #Norge
+                    <http://publications.europa.eu/resource/authority/continent/EUROPE> , #Europa
+                    <http://publications.europa.eu/resource/authority/place/NOR_SVG> , #Stavanger
+                    <https://sws.geonames.org/3133881/> ; #Trondheim
+    dct:modified    "2024-10-28"^^xsd:date ;
+    dct:accrualPeriodicity  <http://publications.europa.eu/resource/authority/frequency/IRREG> ;
+    foaf:homepage   <http://register.digdir.no/hjemmeside/123> #Her ble vi usikre på hvordan vi skal beskrive dette riktig. ;
+    dct:license     <http://publications.europa.eu/resource/authority/licence/CC0>
+    dct:provenance  
+
+
+
+
+    dcat:contactPoint   <https://register.digdir.no/kontaktpunkt/sentralbord> ,
+                        <https://register.digdir.no/kontaktpunkt/testavdelingen> ;
+    .
+
+<https://data.digdir.no/datasets/test_dataset_complete_dcat> a dcat:Dataset ;
+dct:description:    "Dette er et eksempeldatasett som inneholder alle de mulige metadatafeltene i DCAT-AP-NO."@nb ,
+                    "Dette er eit eksempeldatasett som inneheld alle dei moglege metadatafelta i DCAT-AP-NO"@nn ,
+                    "This is an example dataset with all possible metadata fields in DCAT-AP-NO"@en ;
+dct:identifier:     "test_dataset_complete_dcat" , #burde dette vært hele URI-en til datasettbeskrivelsen, og er dette feltet i så fall nødvendig?
+                    "http://data.digdir.no/datasets/test_dataset_minimal"^^anyUri ; #Hvordan beskriver egentlig en URI som literal?
+dcat:theme          <http://publications.europa.eu/resource/authority/data-theme/TRAN> ,
+                    <http://eurovoc.europa.eu/100239> #Landtransport ,
+                    <https://psi.norge.no/los/ord/vegnett> #Vegnett ;
+dct:title           "Datasett med alle mulige felt"@nb , 
+                    "Datasett med alle moglege felt"@nn ,
+                    "Dataset with all possible fields"@en ;
+dct:publisher       <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/974760673> #Viser til representasjon av enhetsregisteret i lenkede data.
+
+.
+
+<https://data.digdir.no/datasets/test_dataset_recommended_dcat> a dcat:Dataset ;
+dct:description:    "Dette er et eksempeldatasett som inneholder de obligatoriske og anbefalte metadatafeltene i DCAT-AP-NO."@nb ,
+                    "Dette er eit eksempeldatasett som inneheld dei obligatoriske og tilrådde metadatafelta i DCAT-AP-NO"@nn ,
+                    "This is an example dataset with the mandatory and recommended metadata fields in DCAT-AP-NO"@en ;
+dct:identifier:     "test_dataset_recommended_dcat" , #burde dette vært hele URI-en til datasettbeskrivelsen, og er dette feltet i så fall nødvendig?
+                    "https://data.digdir.no/datasets/test_dataset_recommended_dcat" ; #Hvordan beskriver egentlig en URI som literal?
+dcat:theme          <http://publications.europa.eu/resource/authority/data-theme/TRAN> ,
+                    <http://eurovoc.europa.eu/100239> #Landtransport ,
+                    <https://psi.norge.no/los/ord/vegnett> #Vegnett ;
+dct:title           "Datasett med obligatoriske og anbefalte felt"@nb , 
+                    "Datasett med obligatoriske og tilrådde felt"@nn ,
+                    "Dataset with mandatory and recommended fields"@en ;
+dct:publisher       <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/974760673> #Viser til representasjon av enhetsregisteret i lenkede data. ;
+dct:subject         <https://concept-catalog.fellesdatakatalog.digdir.no/collections/991825827/concepts/607ba363-1059-4f55-bdcf-9ced4a22c682> ,
+                    <https://concept-catalog.fellesdatakatalog.digdir.no/collections/974760673/concepts/86fadb0e-89b1-40d4-8218-ca25f23db306> ;
+prov:wasGeneratedBy provno:administrativeDecision #Hadde vært fint med lenke til hele kodelista, så vi kan se om det er alternativer som er dekkende for våre data. ,
+                    provno:collectingFromThirdparty ;
+dcat:distribution   <https://register.digdir.no/distribusjoner/distribusjon/1> ,
+                    <https://register.digdir.no/distribusjoner/distribusjon/2> ;
+dct:spatial         <http://publications.europa.eu/resource/authority/country/NOR> , #Norge
+                    <http://publications.europa.eu/resource/authority/continent/EUROPE> , #Europa
+                    <http://publications.europa.eu/resource/authority/place/NOR_SVG> , #Stavanger
+                    <https://sws.geonames.org/3133881/> ; #Trondheim
+dcat:keyword        "Vei"@nb ,
+                    "Veg"@nn ,
+                    "Road"@en ,
+
+                    "Tunnel"@nb , 
+                    "Tunell"@nb ,
+                    "Tunell"@nn ,
+                    "Tunnel"@en ;
+dcat:applicableLegislation        <https://lovdata.no/eli/lov/2006/05/19/16> , #Beskrive hvordan man kan finne ELI for loven man ønsker å vise til.
+                                  <https://lovdata.no/eli/forskrift/2010/12/03/1525>
+dcat:contactPoint                 <https://register.digdir.no/kontaktpunkt/denSmarteGjengen> ,
+                                  <https://register.digdir.no/kontaktpunkt/sentralbord> ;
+dct:temporal                      [ a dct:PeriodOfTime ;
+                                   dcat:startDate "2024-10-28"^^xsd:date ;
+                                   dcat:endDate "2025-10-28"^^xsd:date ;
+                                   ]
+dct:accessRights
+
+
+                                  
+
+
+.
+
+<https://data.digdir.no/datasets/test_dataset_minimal>  a dcat:Dataset;
+dct:description:    "Dette er et eksempeldatasett som inneholder de obligatoriske metadatafeltene i DCAT-AP-NO."@nb ,
+                    "Dette er eit eksempeldatasett som inneheld dei metadatafelta ein må ha med i DCAT-AP-NO"@nn ,
+                    "This is an example dataset with the mandatory metadata fields in DCAT-AP-NO"@en ;
+dct:identifier:     "test_dataset_minimal" , #burde dette vært hele URI-en til datasettbeskrivelsen, og er dette feltet i så fall nødvendig?
+                    "http://data.digdir.no/datasets/test_dataset_minimal" ; #Hvordan beskriver egentlig en URI som literal?
+dcat:theme          <http://publications.europa.eu/resource/authority/data-theme/TRAN> ,
+                    <http://eurovoc.europa.eu/100239> #Landtransport ,
+                    <https://psi.norge.no/los/ord/vegnett> #Vegnett ;
+dct:title           "Datasett med obligatoriske felt"@nb , #Kunne man lagt på to språktagger her, dersom bokmål og nynorsk var like?
+                    "Datasett med obligatoriske felt"@nn ,
+                    "Dataset with mandatory fields"@en ;
+dct:publisher       <https://organization-catalogue.fellesdatakatalog.digdir.no/organizations/974760673> #Viser til representasjon av enhetsregisteret i lenkede data.
+.
+
+
+<https://register.digdir.no/organisasjoner/testorganisasjonen> a foaf:Agent ;
+    
+.
+
+<https://register.digdir.no/kontaktpunkt/sentralbord> a vcard:Kind
+.
+
+<https://register.digdir.no/kontaktpunkt/denSmarteGjengen> a vcard:Kind 
+.
+
+<https://register.digdir.no/kontaktpunkt/testavdelingen> a vcard:Kind
+.
+
+<http://register.digdir.no/hjemmeside/123> a foaf:Document ; #Hva slags informasjon er det forventet at vi skal registrere her?
+
+</https://register.digdir.no/distribusjoner/distribusjon/1> a dcat:Distribution .
+
+<https://register.digdir.no/distribusjoner/distribusjon/2> a dcat:Distribution .
+
